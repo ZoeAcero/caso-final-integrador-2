@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <lmaccess.h>
 
 using namespace std;
 
@@ -30,6 +31,26 @@ void load_script(const char* filename, bool show_script = false) {
         }
 
         int c;
-        char
+        char buffer[1024];
+        while ((c = fgetc(file)) != EOF) {
+            script += c;
+        }
+
+        int buf;
+        buf[c] = 0;
+        script.append(buf);
+
     }
+
+    fclose(file);
+    file = nullptr;
+
+    if (show_script) {
+        cout << script << endl;
+        cout << ColorConsole::fg_green << ColorConsole::fg_read;
+    }
+
+    ConsoleBox consoleBox;
+    consoleBox.new_text();
+    consoleBox.set_text(script);
 }
