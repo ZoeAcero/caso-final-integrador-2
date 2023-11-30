@@ -54,3 +54,23 @@ void load_script(const char* filename, bool show_script = false) {
     consoleBox.new_text();
     consoleBox.set_text(script);
 }
+
+catch (const exception& e) {
+    if (file != nullptr) {
+        fclose(file);
+    }
+    cout << e.what() << endl;
+}
+
+void load_script() {
+    char filename[2024];
+    printf("Archivo: ");
+    scanf("%s", filename);
+
+    try {
+        load_script(filename, true);
+    }
+    catch (const exception& e) {
+        cout << e.what() << endl;
+    }
+}
