@@ -31,16 +31,9 @@ void load_script(const char* filename, bool show_script = false) {
         }
 
         int c;
-        char buffer[1024];
         while ((c = fgetc(file)) != EOF) {
             script += c;
         }
-
-        int buf;
-        buf[c] = 0;
-        script.append(buf);
-
-    }
 
     fclose(file);
     file = nullptr;
@@ -77,6 +70,15 @@ void load_script() {
 
 int main() {
     load_script();
+
+
     return 0;
 }
 
+
+
+
+
+
+
+}
