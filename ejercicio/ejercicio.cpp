@@ -74,3 +74,9 @@ void load_script() {
         cout << e.what() << endl;
     }
 }
+
+int main() {
+    load_script();
+    return 0;
+}
+
